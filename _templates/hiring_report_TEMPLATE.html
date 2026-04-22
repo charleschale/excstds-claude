@@ -281,6 +281,62 @@
         }
         .concern-text strong { color: #1a2332; }
 
+        /* Role-Fit section: What's easy / what's hard in THIS seat.
+           Sits between three-axes (general shape) and concerns (interview probe items).
+           Two-column green/red split conveys the integration a coarse axis-badge can't. */
+        .role-fit-box {
+            background: #fbfaf7;
+            border: 2px solid #1a2332;
+            border-radius: 10px;
+            padding: 22px 26px;
+            margin: 24px 0 24px 0;
+        }
+        .role-fit-box h3 {
+            font-family: "DM Serif Display", serif;
+            font-size: 18px;
+            color: #1a2332;
+            margin: 0 0 6px 0;
+        }
+        .role-fit-seat {
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            color: #7a8fa3;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+        .role-fit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .role-fit-col {
+            padding: 14px 16px;
+            border-radius: 6px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: #333;
+        }
+        .role-fit-col.easy {
+            background: #eaf5ee;
+            border-left: 4px solid #1e8449;
+        }
+        .role-fit-col.hard {
+            background: #fdecea;
+            border-left: 4px solid #c0392b;
+        }
+        .role-fit-col-label {
+            font-family: "DM Sans", sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+        .role-fit-col.easy .role-fit-col-label { color: #1e8449; }
+        .role-fit-col.hard .role-fit-col-label { color: #c0392b; }
+        .role-fit-col strong { color: #1a2332; }
 
         .wiring-fit {
             background: #f8f4eb;
@@ -606,6 +662,22 @@
                 </div>
                 <div class="axis-content">
                     {{SKILLS_CARD_BODY}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Role-Fit: What's easy / what's hard in THIS seat -->
+        <div class="role-fit-box">
+            <h3>{{ROLE_FIT_TITLE}}</h3>
+            <div class="role-fit-seat">{{ROLE_FIT_SEAT}}</div>
+            <div class="role-fit-grid">
+                <div class="role-fit-col easy">
+                    <div class="role-fit-col-label">What Will Be Easy</div>
+                    {{ROLE_FIT_EASY}}
+                </div>
+                <div class="role-fit-col hard">
+                    <div class="role-fit-col-label">What Will Be Hard</div>
+                    {{ROLE_FIT_HARD}}
                 </div>
             </div>
         </div>

@@ -252,6 +252,8 @@ For each Impact question, determine which Primary Driving Force will sustain the
 
     **Build-script convention:** every build script's `OUT` writer must do two writes — `OUT_DIR/<name>.html` for the working copy AND `_reports/<Lastname>_<Firstname>_<variant>.html` for the canonical copy. Same pattern for the PDF renderer JS — write to the working subfolder and copy/link to `_reports/` root. Verify both files exist with `ls -la _reports/<Lastname>_*` as a final QA gate before announcing the build is done. If either is missing, the build is not complete.
 
+13. **Remind the user to push to git after every substantive session.** The brains files (METHODOLOGY.md, PROJECT_NOTES.md, the report SKILL.md, templates, session notes, build scripts) accumulate hours of trial-and-error judgment. OneDrive sync is not version control — it's a single-point mirror with no diff history. A bad edit (Edit-tool truncation, accidental overwrite, OneDrive merge conflict) can silently destroy days of work. After delivering any report, methodology change, skill change, or build-script change, Claude must surface a short backup prompt with the PowerShell commands. The two repos are `charleschale/excstds-claude` (workspace root, brains) and `charleschale/hale-excstds-pipeline` (`_pipeline/` folder). Skip the pipeline block if `_pipeline/` was untouched; skip both if the only changes were inside `_reports/` or `_respondents/` (excluded from version control by design). The full reminder template lives in `_skills/report/SKILL.md` under the "Closing — Back up the brains" section.
+
 ---
 
 ## Data quality checks before writing
@@ -281,8 +283,6 @@ The candidate is being evaluated for a role rather than coached in a role. The r
 Unlike Variant 1, where the TTI adds corroboration and anomaly-explanation to an ExcStds-driven narrative, **Variant 2 cannot be shipped without the TTI.** The Meriste Moore build (April 2026) produced a v0.1 draft from ExcStds alone and a v0.2 draft with TTI added; the difference was large enough that v0.1 would have materially under-served the hiring manager. Specifically:
 
 - TTI DISC D score corroborates or contradicts ExcStds Urgency readings (see "slow to move" signals below).
-- TTI Driving Forces reveal motivational role-fit — e.g., a candidate whose Collaborative DF is Primary and Commanding DF is Indifferent is motivationally designed for a strong-#2 position rather than a #1 leadership role. ExcStds data alone cannot produce this read.
-- TTI Behavioral Hierarchy provides an independent ranking of daily behaviors (e.g., Urgency BH item) that corroborates or contradicts the ExcStds signal from a different measurement approach. Multi-source agreement is what makes the hiring recommendation defensible.
 
 If the TTI is not yet in hand for a Variant 2 candidate, stop data work and request the TTI before continuing.
 
@@ -293,3 +293,18 @@ If the TTI is not yet in hand for a Variant 2 candidate, stop data work and requ
 3. **Evaluation on three axes** — Talent, Judgment, Skills (see framework below). Lead with Talent and Judgment reads; Skills is a third, shorter section.
 4. **Slow-to-move signals present (if any)** — named, corroborated across ExcStds and TTI, and framed in timeframe language (see below).
 5. **Structured interview guide** — 4 to 6 questions tied directly to the most decision-relevant gaps and strengths, each with the read it is probing and the answer pattern that confirms vs. disconfirms the hypothesis.
+
+### Role-Fit section — seat-responsive "What Will Be Easy / What Will Be Hard"
+
+Codified after the Cohen build (April 2026). The Variant 2 badge scheme (red / amber / green across Talent, Judgment, Skills) is coarse — it can read net-positive on a candidate who has both top-decile strengths and Sev-level flags, because the badge averages signal rather than weighting it. The hiring manager then loses the seat-specific decision shape: which strengths actually translate to *this* role, and which weaknesses are deal-breakers vs. coachable in *this* role.
+
+The Role-Fit section sits immediately after the three-axes block and before the targeted concerns. It is a single bordered box with two columns:
+
+- **What Will Be Easy** (green-left, ~120-150 words) — names the top-decile L1/L2 strengths + TTI primary cluster + career evidence that map directly onto the seat's specific demands. Example for Series B CEO: decisional velocity, regulator/counterparty legitimacy, structured operating cadence.
+- **What Will Be Hard** (red-right, ~150-200 words) — names the seat-specific failure mode the data predicts. Frames the failure as a transition (e.g., "the conductor-not-lead-guitarist transition" for Seed/A → Series B), then catalogues the L1/L2 + TTI evidence that points at it. Ends with a binary diligence question the onsite must answer (e.g., "installable against the wiring, OR pair with a COO whose explicit charter is X?").
+
+The seat description is a separate one-line caption at the top of the box (Series B growth-stage CEO · regulated FinTech · scaling exec team · board wants commercial velocity + operating discipline). The hiring manager must supply the seat shape; if not supplied, the build script asks via AskUserQuestion before drafting the section.
+
+Template tokens: `{{ROLE_FIT_TITLE}}`, `{{ROLE_FIT_SEAT}}`, `{{ROLE_FIT_EASY}}`, `{{ROLE_FIT_HARD}}`. CSS classes: `.role-fit-box`, `.role-fit-grid`, `.role-fit-col.easy`, `.role-fit-col.hard`. The hiring template ships these as canonical from this build forward.
+
+QA gate adds these checks: `role-fit-box` ≥ 1, `role-fit-col easy` ≥ 1, `role-fit-col hard` ≥ 1, presence of "What Will Be Easy" + "What Will Be Hard" labels, and a seat-name reference (e.g., "Series B" / "Series A" / "VP" / "Director" matching the supplied seat shape).

@@ -456,4 +456,79 @@ svg.icon, .flag-icon svg, .metric-card svg {
 }
 
 /* Keep-with-next: headers stay with the content that follows them.
-   This is the prima
+   This is the primary mechanism for keeping section titles attached
+   to their content across page breaks. */
+h1, h2, h3, h4, .section-title, .practice-title {
+  break-after: avoid !important;
+  page-break-after: avoid !important;
+}
+```
+
+## Closing — Back up the brains (MANDATORY after every report)
+
+After the report PDF is delivered to the user — after the `[View your report](computer://...)` link — Claude MUST surface a one-line backup reminder. The user has explicitly asked for this; it is part of the skill contract.
+
+**The two repos:**
+- `charleschale/excstds-claude` — the brains repo (workspace root): methodology, skill, templates, session notes, reference data, prototype builds.
+- `charleschale/hale-excstds-pipeline` — the pipeline repo (`_pipeline/` folder): build scripts, ops docs, render service code, DAX queries.
+
+**The reminder Claude must emit at end of every report run** (verbatim or close paraphrase):
+
+> Don't forget to back up the brains. From PowerShell on Windows:
+>
+> ```powershell
+> # Brains repo (methodology, skill, templates, session notes)
+> cd "C:\Users\charl\OneDrive - Planck LLC d b a Patch Media\ClaudeCode\Exc Stds"
+> git add -A
+> git commit -m "<short message describing what changed>"
+> git push
+>
+> # Pipeline repo (only if you touched _pipeline/ this session)
+> cd "C:\Users\charl\OneDrive - Planck LLC d b a Patch Media\ClaudeCode\Exc Stds\_pipeline"
+> git add -A
+> git commit -m "<short message>"
+> git push
+> ```
+>
+> Skip the pipeline block if you didn't change anything under `_pipeline/`. Skip both if the only changes were inside `_reports/` or `_respondents/` (those are intentionally excluded from version control).
+
+**When to suggest skipping:**
+- Pure data pull, no methodology / skill / template / build-script change → skip both, the reports themselves are excluded from git.
+- Methodology or skill edit only → push brains repo only.
+- Build script or pipeline code change → push pipeline repo only (and brains repo if a session note or methodology entry was also added).
+
+**Common gotchas to mention if the user hits them:**
+- `fatal: detected dubious ownership` → run `git config --global --add safe.directory '<full path>'` (git's error message includes the exact command).
+- `fatal: cannot lock ref 'HEAD'` → stale lockfile from OneDrive, run `Remove-Item .git\HEAD.lock` and retry.
+- `LF will be replaced by CRLF` warnings → harmless, ignore.
+- Authentication prompt on first push of a session → use the browser popup (Git Credential Manager handles it).
+
+**Why this matters:** the brains files (METHODOLOGY.md, PROJECT_NOTES.md, this SKILL.md, templates, session notes) accumulate hours of trial-and-error judgment. OneDrive sync is not version control — it's a single-point mirror with no diff history. Without git, a bad edit (Edit-tool truncation, accidental overwrite, OneDrive merge conflict) can silently destroy days of methodology evolution. Push after every substantive session.
+
+
+### Variant 2 Role-Fit section — canonical (added 2026-04-22)
+
+Codified after the Cohen hiring report build (Series B growth-stage CEO candidate framing, April 2026). See METHODOLOGY.md "Role-Fit section — seat-responsive What Will Be Easy / What Will Be Hard" for the full specification.
+
+**Summary.** Every Variant 2 hiring report MUST include a Role-Fit section immediately after the three-axes block and before the targeted concerns. It is a single bordered box titled "Role-Fit Read — What Will Be Easy, What Will Be Hard" with a one-line seat caption and two side-by-side columns (green / red).
+
+**Why.** The three-axes badge scheme (red/amber/green on Talent, Judgment, Skills) is coarse — a candidate with multiple top-decile strengths AND multiple Sev-level flags can net-positive in the badges while the hiring manager loses the seat-specific decision shape. Role-Fit names the specific strengths that translate to *this* role and the specific weaknesses that will matter in *this* role.
+
+**Seat shape input.** The hiring manager must supply the seat shape up front. If not supplied, ask via AskUserQuestion before drafting. Canonical seat-shape dimensions: stage (Seed / A / B / growth / public), function (CEO / COO / CPO / VP / Director / IC), sector, exec-team context, board priority.
+
+**Template tokens (hiring_report_TEMPLATE.html):**
+- `{{ROLE_FIT_TITLE}}` — section header
+- `{{ROLE_FIT_SEAT}}` — seat caption line
+- `{{ROLE_FIT_EASY}}` — 120–150 words, green column, maps strengths to seat demands
+- `{{ROLE_FIT_HARD}}` — 150–200 words, red column, names seat-specific failure mode + L1/L2/TTI evidence + binary diligence question
+
+**Build script pattern.** Every `build_<name>_hiring.py` must implement a `build_role_fit()` function returning a 4-token dict, then include `**role_fit` in the replacements dict in main(). See `build_cohen_hiring.py` for the canonical implementation.
+
+**QA gate additions:**
+- `class="role-fit-box"` count ≥ 1
+- `class="role-fit-col easy"` count ≥ 1
+- `class="role-fit-col hard"` count ≥ 1
+- "What Will Be Easy" + "What Will Be Hard" strings present
+- Seat-name reference present (e.g., "Series B", "VP", matching the supplied seat shape)
+
+**Recommendation text coupling.** The RECOMMENDATION_TEXT must name the specific diligence conditions the onsite needs to resolve (not just "proceed with diligence"). When Role-Fit surfaces a binary question ("installable against the wiring OR pair with a COO"), the recommendation must reference both paths. The Cohen build's canonical recommendation is: "CONDITIONAL HIRE · DILIGENCE-REQUIRED — ... Advance to onsite conditional on validating (a) conductor routines installable against the wiring, and (b) the existing exec team can carry distributed accountability — or plan to pair with a COO/President whose explicit charter is that distribution."
