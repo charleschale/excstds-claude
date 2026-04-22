@@ -1,0 +1,90 @@
+QuestionNmbr	L1_Num	L1_Title	L2_Short	IOU	Polarity	Answer	RightNum	Impact_Rank	Teach_Rank	Z_Delta
+92	1	Risking by Investing in Others	Developmental Discipline	T	0.028	5	5		-1.33
+116	8	Organizational Decision Making	Respects Collective Wisdom	I	0.194	1	1		17	-1.12
+118	8	Organizational Decision Making	Respects Collective Wisdom	I	-0.356	1	1			-1.10
+90	6	Personal Reliability	Commitment To Routine	U	0.264	2	1			-0.95
+81	4	Risking by Replacing Self	Urgency Down Chain Of Command	U	0.614	1	1		5	-0.93
+25	1	Risking by Investing in Others	Handling Daily Difficulties With Dignity	I	1	1	1		7	-0.92
+35	5	Risking by Pushing Extreme Accountability	Stds = What Tolerate	O	0.072	2	1			-0.86
+8	6	Personal Reliability	Extreme Ownership	I	0.358	4	5			-0.73
+385	9	Deliberate Urgency	Action Over Inaction	I	0.391	1	1		13	-0.71
+142	4	Risking by Replacing Self	Execs can do the job	T		1	1			-0.70
+19	6	Personal Reliability	Commitment To Routine	I	0.644	1	1		12	-0.68
+36	2	Risking by Facilitative Mindset	Sublimating Ego	I	0.428	5	5		19	-0.68
+119	8	Organizational Decision Making	Facts Over Feelings	I	0.669	1	1		4	-0.67
+68	8	Organizational Decision Making	Facts Over Feelings	U	0.756	5	5		6	-0.66
+20	2	Risking by Facilitative Mindset	Dialogue Vs. Direction	O	0.558	5	5		14	-0.64
+37	4	Risking by Replacing Self	Urgency Down Chain Of Command	O	1	1	1		16	-0.62
+111	1	Risking by Investing in Others	Developmental Mindset	T	1	1	1		18	-0.61
+43	2	Risking by Facilitative Mindset	Sublimating Ego	I	0.294	4	5			-0.61
+24	6	Personal Reliability	Commitment To Routine	U	0.534	1	1		8	-0.61
+381	8	Organizational Decision Making	Clarity Of Accountability	O	0.465	1	1		11	-0.58
+80	5	Risking by Pushing Extreme Accountability	Drives Accountability	T	0.201	4	5			-0.55
+115	1	Risking by Investing in Others	Developmental Mindset	T	1	1	1		10	-0.54
+120	8	Organizational Decision Making	Facts Over Feelings	O	1	1	1		9	-0.54
+139	1	Risking by Investing in Others	Developmental Mindset	T	1	1	1		15	-0.50
+100	7	Not Pleasing	Discomfort For Team	T	0.485	4	5			-0.49
+49	9	Deliberate Urgency	Extreme Proactivity	U	0.609	2	1			-0.47
+140	9	Deliberate Urgency	Proactive Belief In People	O	1	2	5	2		-0.44
+34	5	Risking by Pushing Extreme Accountability	Stds = What Tolerate	T	0.296	4	5			-0.41
+18	2	Risking by Facilitative Mindset	Dialogue Vs. Direction	U	0.351	4	5			-0.40
+123	8	Organizational Decision Making	Simplification Methods	U	0.524	1	1		1	-0.39
+12	3	Conducting & Outvoted	Empower Team Authority	O	0.399	3	5			-0.38
+102	2	Risking by Facilitative Mindset	Dialogue Vs. Direction	O	0.622	2	1			-0.36
+65	2	Risking by Facilitative Mindset	Sublimating Ego	I	0.619	4	5			-0.34
+4	5	Risking by Pushing Extreme Accountability	Jrs Extreme Proactivity	T	-0.171	2	1			-0.29
+85	1	Risking by Investing in Others	Developmental Discipline	U	0.383	2	1			-0.29
+13	2	Risking by Facilitative Mindset	Power & Status Management	U	0.237	2	1			-0.28
+602	7	Not Pleasing	Cares About Others Not Their Approval	I	0.450	4	5			-0.27
+126	6	Personal Reliability	Extreme Ownership	O	0.673	4	5			-0.23
+45	8	Organizational Decision Making	Simplification Methods	T	0.670	2	1			-0.22
+137	1	Risking by Investing in Others	Developmental Mindset	T	1	1	1		2	-0.20
+124	1	Risking by Investing in Others	Reciprocal Followership	T	0.608	2	1			-0.19
+29	5	Risking by Pushing Extreme Accountability	Basic Machinery Of Accountability	O	0.194	2	1			-0.19
+112	5	Risking by Pushing Extreme Accountability	Jrs Extreme Proactivity	T	0.588	2	1			-0.18
+134	1	Risking by Investing in Others	Handling Daily Difficulties With Dignity	T	0.877	4	1	1		-0.17
+131	7	Not Pleasing	Cares About Others Not Their Approval	T	1	5	5		3	-0.16
+95	1	Risking by Investing in Others	Developmental Discipline	T	0.579	2	1			-0.14
+82	5	Risking by Pushing Extreme Accountability	Stds = What Tolerate	T	0.500	4	5			-0.13
+23	5	Risking by Pushing Extreme Accountability	Basic Machinery Of Accountability	U	0.114	2	1			-0.10
+93	1	Risking by Investing in Others	Handling Daily Difficulties With Dignity	I	0.563	2	1			-0.08
+5	3	Conducting & Outvoted	Empower Team Authority	O	0.336	2	1			-0.07
+384	8	Organizational Decision Making	Clarity Of Accountability	O	0.380	4	5			-0.02
+44	6	Personal Reliability	Commitment To Routine	I	0.668	2	1			0.00
+98	9	Deliberate Urgency	Action Over Inaction	U	0.305	3	1			0.02
+50	1	Risking by Investing in Others	Reciprocal Followership	T	0.752	2	1			0.09
+117	1	Risking by Investing in Others	Developmental Mindset	T	0.098	2	1			0.10
+382	8	Organizational Decision Making	Clarity Of Accountability	O	0.231	4	5			0.11
+132	1	Risking by Investing in Others	Demonstrating Genuine Fanness	T	0.292	2	5	4		0.16
+14	3	Conducting & Outvoted	Conductor > Lead Guitarist	T	0.469	2	1			0.16
+99	7	Not Pleasing	Discomfort For Team	T	0.262	3	1			0.16
+47	2	Risking by Facilitative Mindset	Power & Status Management	I	0.397	2	1			0.16
+3	7	Not Pleasing	Discomfort For Team	T	0.278	2	5	15		0.17
+83	1	Risking by Investing in Others	Handling Daily Difficulties With Dignity	U	0.731	3	1			0.19
+141	1	Risking by Investing in Others	Demonstrating Genuine Fanness	O		2	5			0.22
+113	5	Risking by Pushing Extreme Accountability	Jrs Extreme Proactivity	O	0.694	3	1			0.24
+33	5	Risking by Pushing Extreme Accountability	Stds = What Tolerate	T	0.279	2	5	8		0.25
+61	6	Personal Reliability	Extreme Ownership	O	0.348	3	1			0.31
+31	5	Risking by Pushing Extreme Accountability	Drives Accountability	O	0.580	4	1	7		0.35
+1	4	Risking by Replacing Self	Ability To Disappear	O	0.259	3	5			0.37
+138	4	Risking by Replacing Self	Execs can do the job	T	1	2	1			0.48
+125	9	Deliberate Urgency	Proactive Belief In People	T	0.638	2	1			0.49
+46	1	Risking by Investing in Others	Handling Daily Difficulties With Dignity	I	-0.016	4	5			0.54
+54	1	Risking by Investing in Others	Reciprocal Followership	O	0.790	2	1			0.55
+69	7	Not Pleasing	Discomfort For Self	U	0.591	3	1			0.56
+63	7	Not Pleasing	Discomfort For Team	U	0.601	2	5	3		0.56
+55	4	Risking by Replacing Self	Ability To Disappear	O	0.485	3	1			0.57
+15	3	Conducting & Outvoted	Conductor > Lead Guitarist	T	0.264	4	1	16		0.61
+51	9	Deliberate Urgency	Fire In Belly	U	0.753	2	1			0.61
+41	8	Organizational Decision Making	Clarity Of Accountability	O	0.173	4	1	12		0.63
+52	5	Risking by Pushing Extreme Accountability	Stds = What Tolerate	T	0.680	3	5			0.72
+79	7	Not Pleasing	Discomfort For Self	T	0.758	3	1			0.74
+59	5	Risking by Pushing Extreme Accountability	Stds = What Tolerate	T	0.253	4	1	13		0.76
+84	7	Not Pleasing	Risking / 100% Intention	U	0.393	5	1	9		1.10
+39	1	Risking by Investing in Others	Demonstrating Genuine Fanness	I	0.505	2	1			1.23
+101	7	Not Pleasing	Discomfort For Team	T	0.742	2	5	11		1.26
+9	3	Conducting & Outvoted	Empower Team Authority	O	0.145	4	1	17		1.50
+96	8	Organizational Decision Making	Simplification Methods	U	0.874	2	5	14		1.56
+71	9	Deliberate Urgency	Extreme Proactivity	U	0.461	2	5	10		1.58
+2	4	Risking by Replacing Self	Ability To Disappear	O	0.572	1	5	6		1.69
+75	7	Not Pleasing	Risking / 100% Intention	U	0.646	5	1	5		2.41

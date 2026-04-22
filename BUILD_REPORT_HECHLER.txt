@@ -1,0 +1,258 @@
+================================================================================
+EXCELLENCE STANDARDS HIRING REPORT — HOWARD HECHLER
+Build Completion Report
+Date: April 21, 2026
+================================================================================
+
+BUILD STATUS: COMPLETE ✓
+
+DELIVERABLES CREATED:
+================================================================================
+
+1. BUILD SCRIPT
+   File: _pipeline/scripts/build_hechler_hiring.py
+   Size: ~489 lines
+   Function: End-to-end pipeline for:
+     - Loading respondent data from xlsx (L1, L2, Flags, Metadata, Non-Scorable)
+     - Computing distribution chart tokens (3 charts, 13 tokens)
+     - Calling motivators_section.build_section() for DISC/Standard Map
+     - Filling all 56 tokens in the template
+     - Saving filled HTML
+
+   Run: python _pipeline/scripts/build_hechler_hiring.py
+   Output: _reports/Hechler_Howard_hiring_report.html
+
+2. PDF RENDERER
+   File: _pipeline/scripts/make_pdf_hechler.py
+   Size: ~76 lines
+   Function: Converts HTML to PDF using WeasyPrint
+   
+   Run: python _pipeline/scripts/make_pdf_hechler.py
+   Output: _reports/Hechler_Howard_hiring_report.pdf
+
+3. HTML REPORT
+   File: _reports/Hechler_Howard_hiring_report.html
+   Size: 101,077 bytes (99 KB)
+   Status: All 56 tokens populated, no unfilled placeholders
+   
+   Key Features:
+     - Interactive Chart.js canvases (3 distribution charts)
+     - Responsive grid layout with CSS media queries
+     - Brand lockup: "HALE GLOBAL SUCCESS DIAGNOSTICS" (3 occurrences)
+     - Semantic HTML structure for print/PDF
+
+4. PDF REPORT
+   File: _reports/Hechler_Howard_hiring_report.pdf
+   Size: 125,462 bytes (122 KB)
+   Pages: 17
+   Status: Valid PDF document (verified with pdfinfo)
+   
+   Content:
+     - All text sections rendered (2 targeted concerns, career timeline, etc.)
+     - Chart.js canvases appear as placeholders (JS not executed in PDF)
+     - HTML version shows fully interactive charts
+
+REPORT CONTENT:
+================================================================================
+
+CANDIDATE:
+  Name: Howard Hechler
+  Current Role: CEO — Voyager Medical / ClearPath Cardio
+  Email: howard@clearpathcardio.com
+  Education: MBA, Darden (2001–2005)
+  Report Date: April 21, 2026
+
+THREE-AXES ASSESSMENT:
+  1. TALENT (AMBER/YELLOW)
+     - External validation strong (FDA dual approval, Board appointment)
+     - Instrument signal: Conditional belief, mixed talent-axis posture
+     - Probe accordingly; do NOT dismiss either signal
+
+  2. JUDGMENT (RED/AMBER)
+     - L1 #8 Org Decision Making (Z_Human -1.48) — frontier
+     - L2 Facts Over Feelings (-1.72), Action Over Inaction (-1.85) signal
+     - Decisions lean on feeling rather than fact; pace lags under pressure
+     - At $3.5M fundraising deadline, slow-to-decide = organizationally lethal
+
+  3. SKILLS (NOT MEASURED)
+     - Instrument does not measure domain skill directly
+     - Lumicell wins (FDA dual approval, CMS TPT, commercial launch) = strong proxy
+     - Does not bypass Talent/Judgment frontiers
+
+TWO TARGETED CONCERNS:
+  1. Decision Pattern: Facts-over-Feelings + Action-over-Inaction
+     Interview probes: Data vs. instinct divergence, recent deferred decisions
+  
+  2. Belief-in-Others: Conditional Belief Hi + Upgrade Team + Altruistic DF
+     Interview probes: Pre-proof backing of people, private vs. public advocacy
+
+WIRING FIT (9 L1 Dimensions):
+  ✓ Investing in Others: ExcStds split → TARGETED CONCERN
+  ✓ Facilitative Mindset: TTI high-I divergence → DILIGENCE ITEM
+  ✓ Conducting & Outvoted: Installed against grain → PASS
+  ✓ Replacing Self: TTI hands-on wiring → DILIGENCE ITEM
+  ✓ Pushing Extreme Accountability: Split signal → DILIGENCE ITEM
+  ✓ Personal Reliability: Frontier on ownership → DILIGENCE ITEM
+  ✓ Not Pleasing: No flag → PASS
+  ✓ Org Decision Making: L1 #8 frontier → TARGETED CONCERN
+  ✓ Deliberate Urgency: TTI-ExcStds divergence → TARGETED CONCERN
+
+HARD-TO-LEARN GATES (4):
+  1. Low Deliberate Urgency: Frontier in 6-month watch
+  2. Low Org Decision Making: Hard-to-learn in typical arc
+  3. Conditional Belief in Others: Diligence item
+  4. Satisfied with Gripes + Average: Shared-root concern
+
+INTERVIEW PROBES (4 Cards):
+  1. Facts vs. Feelings in Strategic Decisions
+  2. Hard Decisions Deferred
+  3. Belief-in-Others: Pre-Proof or Post-Proof
+  4. Team Upgrade or Team Development
+
+TALENT RADAR (7 Attributes):
+  Vision 4/5, Character 3/5, People-first 2/5, Drive 3/5,
+  Judgment 2/5, Authenticity 3/5, Humility 2/5
+
+CAREER TIMELINE:
+  - 1994–1998: Undergraduate degree
+  - 2001–2005: MBA, Darden
+  - Apr 2023: Lumicell DVS pivotal trial published
+  - Apr 19, 2024: FDA NDA + PMA dual approval (LUMISIGHT)
+  - Sep 2024: CMS TPT payment approved
+  - Nov 20, 2024: Board formalizes CEO role (LumiTeam)
+  - Jan 28, 2025: LumiSystem commercial launch
+  - Current: CEO, Voyager Medical
+
+EXCELLENCE STANDARDS SCORES (9 L1 Dimensions + 31 L2):
+  L1 Summary:
+    Z_Algo_Overall: -0.01 (at population mean)
+    Z_Human_Overall: -0.88 (slightly below mean)
+    Reverse Flags: 22 (10 lit flags)
+    Questions Answered: 90 of 90
+
+  Top L2 Strengths:
+    - 8.1 Simplification Methods: +1.73
+    - 5.2 Jrs Extreme Proactivity: +1.45
+    - 2.1 Dialogue vs Direction: +1.27
+    - 1.4 Demonstrating Genuine Fanness: +0.91
+    - 5.3 Drives Accountability: +0.92
+
+  Top L2 Frontiers:
+    - 9.6 Action Over Inaction: -1.85
+    - 8.7 Facts Over Feelings: -1.72
+    - 5.1 Basic Machinery: -1.16
+    - 2.4 Sublimating Ego: -1.06
+    - 1.5 Developmental Mindset: -1.06
+
+DISC PROFILE:
+  Natural: D=89, I=66, S=7, C=48 (Persuading Conductor)
+  Adapted: D=93, I=62, S=8, C=35
+  Shift: +4D, -4I, -13C (environment pushing toward less process)
+  Primary DF: Commanding (85), Intentional (67), Objective (65)
+  Indifferent DF: Altruistic (21), Collaborative (6)
+
+DISTRIBUTION CHARTS (Embedded in HTML, JSON data in HTML):
+  1. All Z-Scores: Algo + Human histograms, 0.5-unit bins (-4.0 to +4.0)
+  2. Success vs. Fail: Cohort comparison by Z_Algo
+  3. Flag Counts: Population distribution by RF count (5-unit bins)
+
+RECOMMENDATION:
+================================================================================
+
+CONDITIONAL YES — PROCEED WITH DILIGENCE
+
+Rationale:
+  - External validators (FDA, CMS, Board, Lumicell wins) are real and strong
+  - Instrument frontiers (decision velocity, belief-in-others) are real and material
+  - Neither dismisses the other
+  - A rigorous reference call on decision-making speed + belief-in-team +
+    first-90-day accountability focus could close the gaps
+
+Framework for Hiring Manager:
+  - NOT a conditional no. This is a go/no-go diligence check.
+  - Reference calls on medical device leadership (Lumicell, prior roles)
+  - Behavioral interview on decision-making under pressure and belief in people
+  - 90-day plan: focus on decisional urgency and team ownership
+  - Board/Executive coach alignment on judgment and talent development
+
+TECHNICAL DETAILS:
+================================================================================
+
+Token Substitution: 56/56 complete
+  - Candidate Info: 3 tokens
+  - Metrics: 7 tokens
+  - Three-Axes: 9 tokens
+  - Concerns: 2 tokens
+  - Wiring Fit: 1 token
+  - Hard-to-Learn: 1 token
+  - Interview Probes: 1 token
+  - Teach Items: 1 token
+  - Talent Radar: 2 tokens
+  - Career Timeline: 2 tokens
+  - Distribution Charts: 13 tokens
+  - DISC Scores: 8 tokens
+  - Excellence Standards: 3 tokens
+  - Recommendation: 1 token
+
+Brand Lockup: "HALE GLOBAL SUCCESS DIAGNOSTICS" (3 occurrences)
+  ✓ HTML header
+  ✓ HTML footer
+  ✓ HTML <title> tag
+
+Data Sources:
+  - Respondent xlsx: _respondents/20260421.howard@clearpathcardio.com/data.xlsx
+  - Histogram data: Histogram Data.xlsx (1,088 population rows)
+  - Template: _templates/hiring_report_TEMPLATE.html
+  - Motivators module: _pipeline/src/pipeline/motivators_section.py
+  - TTI DISC: From respondent PDF (D=89, I=66, S=7, C=48)
+
+PDF Rendering:
+  - Tool: WeasyPrint (Python, pure Python/Rust stack, no external dependencies)
+  - Limitation: JavaScript (Chart.js) not executed, charts appear as placeholders
+  - Full interactivity: View HTML in browser for complete chart experience
+  - Alternative for full PDF charts: Puppeteer + Chromium (requires Node/npm)
+
+FILES AND PATHS:
+================================================================================
+
+Build Artifacts:
+  /sessions/festive-zen-ride/mnt/Exc Stds/_pipeline/scripts/build_hechler_hiring.py
+  /sessions/festive-zen-ride/mnt/Exc Stds/_pipeline/scripts/make_pdf_hechler.py
+
+Report Outputs:
+  /sessions/festive-zen-ride/mnt/Exc Stds/_reports/Hechler_Howard_hiring_report.html
+  /sessions/festive-zen-ride/mnt/Exc Stds/_reports/Hechler_Howard_hiring_report.pdf
+
+Reference Files (Read but Not Modified):
+  /sessions/festive-zen-ride/mnt/Exc Stds/_templates/hiring_report_TEMPLATE.html
+  /sessions/festive-zen-ride/mnt/Exc Stds/_reports/Meyrath_Hugues_hiring_report.html (precedent)
+
+NEXT STEPS:
+================================================================================
+
+For Hiring Manager:
+  1. Download and open HTML in browser for full interactive experience
+  2. Review the two targeted concerns in detail
+  3. Use interview probes to probe decision-making and team belief
+  4. Schedule reference calls on Lumicell and prior medical device roles
+  5. Frame conversation as: "We see real strengths here. We also see
+     two frontiers that are material to your success in this role.
+     Let's validate them together."
+
+For Report Maintenance:
+  - To regenerate: python _pipeline/scripts/build_hechler_hiring.py
+  - To update PDF: python _pipeline/scripts/make_pdf_hechler.py
+  - Template changes affect all future reports (use _templates/hiring_report_TEMPLATE.html)
+  - Motivators module updates: modify _pipeline/src/pipeline/motivators_section.py
+
+Quality Assurance:
+  ✓ All 56 tokens filled (0 unfilled)
+  ✓ Brand lockup verified (3 occurrences of full lockup)
+  ✓ PDF valid (17 pages, 122 KB)
+  ✓ Content sections present (all 12 major sections rendered)
+  ✓ No JavaScript errors or missing dependencies
+  ✓ Text content 100% in PDF (charts require browser rendering)
+
+================================================================================
+END OF BUILD REPORT
+================================================================================

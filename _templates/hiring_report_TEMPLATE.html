@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{CANDIDATE_NAME}} — Senior Manager, HR | HALE GLOBAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..146,100..900;1,9..146,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #2c3e50;
+            background: #f5f7fa;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a2332 0%, #243447 100%);
+            color: white;
+            padding: 40px;
+            position: relative;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .hale-logo {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4a84b;
+        }
+
+        .header-date {
+            font-size: 12px;
+            color: #b0bec5;
+            letter-spacing: 0.5px;
+        }
+
+        .header-main {
+            margin-bottom: 20px;
+        }
+
+        .candidate-name {
+            font-family: "DM Serif Display", serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .candidate-creds {
+            font-size: 13px;
+            color: #b0bec5;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .candidate-role {
+            font-size: 16px;
+            color: #e8e8e8;
+            font-weight: 500;
+        }
+
+        .recommendation-badge {
+            display: inline-block;
+            background: #d4a84b;
+            color: #1a2332;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 16px;
+        }
+
+        /* Three-Axes Cards */
+        .three-axes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: #fafbfc;
+            border-bottom: 1px solid #e8eef2;
+        }
+
+        .axis-card {
+            background: white;
+            border-left: 4px solid #1a2332;
+            padding: 24px;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .axis-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .axis-title {
+            font-family: "DM Serif Display", serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #1a2332;
+        }
+
+        .axis-badge {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 2px;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .badge-amber {
+            background: #d4a84b;
+            color: #1a2332;
+        }
+
+        .badge-yellow {
+            background: #f4c430;
+            color: #1a2332;
+        }
+
+        .badge-gray {
+            background: #d0d0d0;
+            color: #1a2332;
+        }
+
+        .badge-green {
+            background: #1e8449;
+            color: #fff;
+        }
+
+        .badge-red {
+            background: #c0392b;
+            color: #fff;
+        }
+
+        .axis-content {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .axis-highlight {
+            color: #d4a84b;
+            font-weight: 600;
+        }
+
+        /* Headline Metrics */
+        .metrics {
+            padding: 40px;
+            background: white;
+            border-bottom: 1px solid #e8eef2;
+        }
+
+        .metrics-title {
+            font-family: "DM Serif Display", serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #1a2332;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .metric-item {
+            background: #fafbfc;
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid #e8eef2;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #7a8fa3;
+            margin-bottom: 6px;
+        }
+
+        .metric-value {
+            font-family: "DM Serif Display", serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: #1a2332;
+        }
+
+        .metric-subtext {
+            font-size: 11px;
+            color: #a0b0c0;
+            margin-top: 4px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 40px;
+            background: white;
+            border-bottom: 1px solid #e8eef2;
+        }
+
+        .section-title {
+            font-family: "DM Serif Display", serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #1a2332;
+            border-bottom: 2px solid #d4a84b;
+            padding-bottom: 12px;
+        }
+
+        .concerns-box {
+            background: #fef9f0;
+            border: 2px solid #d4a84b;
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin: 24px 0 32px 0;
+        }
+        .concerns-box h3 {
+            font-family: "DM Serif Display", serif;
+            font-size: 18px;
+            color: #1a2332;
+            margin: 0 0 16px 0;
+        }
+        .concern-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 14px;
+            align-items: flex-start;
+        }
+        .concern-item:last-child { margin-bottom: 0; }
+        .concern-number {
+            background: #c0392b;
+            color: #fff;
+            font-family: "DM Sans", sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .concern-text {
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+        .concern-text strong { color: #1a2332; }
+
+
+        .wiring-fit {
+            background: #f8f4eb;
+            border: 1px solid #d4a84b;
+            border-left: 4px solid #d4a84b;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 20px 0 24px 0;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .wiring-fit-label {
+            font-family: "DM Sans", sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1a2332;
+            background: #d4a84b;
+            padding: 4px 10px;
+            border-radius: 3px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .wiring-fit-content {
+            font-family: "DM Sans", sans-serif;
+            font-size: 13px;
+            color: #333;
+            line-height: 1.55;
+        }
+        .wiring-fit-content strong { color: #1a2332; }
+        .wiring-flag {
+            display: inline-block;
+            background: #fdecea;
+            color: #c0392b;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: 6px;
+        }
+
+        .probe-coaching {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #7a8fa3;
+            font-style: italic;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e0e6eb;
+        }
+        .probe-coaching strong {
+            color: #555;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            position: relative;
+            margin-bottom: 24px;
+            height: 300px;
+        }
+
+        .chart-container.radar {
+            height: 400px;
+        }
+
+        /* Career Timeline */
+        .timeline {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 24px;
+            height: 60px;
+        }
+
+        .timeline-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+            padding: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .timeline-block:hover {
+            opacity: 0.9;
+        }
+
+        .timeline-nalco {
+            flex: 3.33;
+            background: #3498db;
+        }
+
+        .timeline-trc {
+            flex: 1;
+            background: #9b59b6;
+        }
+
+        .timeline-bee {
+            flex: 1.08;
+            background: #e74c3c;
+        }
+
+        .timeline-9gauge {
+            flex: 5.25;
+            background: #f39c12;
+        }
+
+        .timeline-escalon {
+            flex: 1.75;
+            background: #16a085;
+        }
+
+        .timeline-atlas {
+            flex: 1.83;
+            background: #2c3e50;
+        }
+
+        .timeline-banner {
+            background: #ffe6e6;
+            color: #c0392b;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 12px;
+            letter-spacing: 0.4px;
+        }
+
+        .timeline-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+            font-size: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        /* Interview Probes */
+        .probes-section {
+            padding: 40px;
+            background: #fafbfc;
+            border-bottom: 1px solid #e8eef2;
+        }
+
+        .probes-title {
+            font-family: "DM Serif Display", serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #1a2332;
+            border-bottom: 2px solid #d4a84b;
+            padding-bottom: 12px;
+        }
+
+        .probes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .probe-card {
+            background: white;
+            border: 1px solid #e8eef2;
+            border-radius: 4px;
+            padding: 20px;
+        }
+
+        .probe-number {
+            display: inline-block;
+            background: #d4a84b;
+            color: #1a2332;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .probe-category {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #7a8fa3;
+            letter-spacing: 0.4px;
+            margin-bottom: 6px;
+        }
+
+        .probe-question {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a2332;
+            color: #7a8fa3;
+            padding: 24px 40px;
+            font-size: 11px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .section, .three-axes, .metrics, .probes-section, .header {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .three-axes, .metrics, .section, .probes-section {
+                padding: 24px;
+            }
+
+            .header {
+                padding: 24px;
+            }
+
+            .header-main {
+                margin-bottom: 16px;
+            }
+
+            .candidate-name {
+                font-size: 28px;
+            }
+
+            .candidate-role {
+                font-size: 14px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .probes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                height: 50px;
+            }
+
+            .section-title, .probes-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div class="hale-logo">HALE GLOBAL SUCCESS DIAGNOSTICS</div>
+                <div class="header-date">Prepared {{REPORT_DATE}}</div>
+            </div>
+            <div class="header-main">
+                <div class="candidate-name">{{CANDIDATE_NAME}}</div>
+                <div class="candidate-creds">{{CANDIDATE_CREDS}}</div>
+                <div class="candidate-role">{{CANDIDATE_ROLE}}</div>
+            </div>
+            <div class="recommendation-badge">{{RECOMMENDATION_TEXT}}</div>
+        </div>
+
+
+        
+        <!-- Three-Axes Cards -->
+        <div class="three-axes">
+            <div class="axis-card">
+                <div class="axis-header">
+                    <div class="axis-title">Talent</div>
+                    <div class="axis-badge {{TALENT_BADGE_CLASS}}">{{TALENT_BADGE_TEXT}}</div>
+                </div>
+                <div class="axis-content">
+                    {{TALENT_CARD_BODY}}
+                </div>
+            </div>
+
+            <div class="axis-card">
+                <div class="axis-header">
+                    <div class="axis-title">Judgment</div>
+                    <div class="axis-badge {{JUDGMENT_BADGE_CLASS}}">{{JUDGMENT_BADGE_TEXT}}</div>
+                </div>
+                <div class="axis-content">
+                    {{JUDGMENT_CARD_BODY}}
+                </div>
+            </div>
+
+            <div class="axis-card">
+                <div class="axis-header">
+                    <div class="axis-title">Skills</div>
+                    <div class="axis-badge {{SKILLS_BADGE_CLASS}}">{{SKILLS_BADGE_TEXT}}</div>
+                </div>
+                <div class="axis-content">
+                    {{SKILLS_CARD_BODY}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Two Targeted Concerns -->
+        <div class="concerns-box">
+            <h3>{{CONCERNS_TITLE}}</h3>
+            {{CONCERNS_ITEMS}}
+        </div>
+
+        <!-- Headline Metrics -->
+        <div class="metrics">
+            <div class="metrics-title">Headline Metrics</div>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-label">Overall Z|Algo</div>
+                    <div class="metric-value">{{ZALGO_OVERALL}}</div>
+                    <div class="metric-subtext">vs. cohort {{COHORT_AVG}}</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Reverse Flags</div>
+                    <div class="metric-value">{{REVERSE_FLAGS}}</div>
+                    <div class="metric-subtext">positive signals</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Flags Lit</div>
+                    <div class="metric-value">{{FLAGS_LIT}}</div>
+                    <div class="metric-subtext">concerning patterns</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Teach Items</div>
+                    <div class="metric-value">{{TEACH_ITEMS}}</div>
+                    <div class="metric-subtext">coachable areas</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Hard-to-Learn</div>
+                    <div class="metric-value">{{HARD_TO_LEARN}}</div>
+                    <div class="metric-subtext">disqualifiers clear</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Population Distribution Charts -->
+        <div class="section">
+            <div class="section-title">Population Distribution</div>
+
+            <!-- Chart Key - light background for readability -->
+            <div style="background:#f0f1f3; border:1px solid #d0d4da; border-radius:6px; padding:10px 16px; margin-bottom:16px;">
+                <div style="display:flex; flex-wrap:wrap; gap:4px 20px; font-size:0.75rem; color:#333; align-items:center;">
+                    <span style="font-weight:700; color:#1a2332; margin-right:2px;">CHART KEY</span>
+                    <span style="display:flex; align-items:center; gap:4px;"><span style="display:inline-block; width:10px; height:10px; background:#8c8c8c; border-radius:1px;"></span> Z|Algo Distribution</span>
+                    <span style="display:flex; align-items:center; gap:4px;"><span style="display:inline-block; width:10px; height:10px; background:#c8c8c8; border-radius:1px;"></span> Z|Human Distribution</span>
+                    <span style="display:flex; align-items:center; gap:4px;"><span style="color:#1a1a1a; font-size:0.9rem;">&#9650;</span> Z|Algo Result</span>
+                    <span style="display:flex; align-items:center; gap:4px;"><span style="color:#555; font-size:0.9rem;">&#9671;</span> Z|Human Result</span>
+                    <span style="display:flex; align-items:center; gap:4px;"><span style="display:inline-block; width:10px; height:10px; background:#e74c3c; border-radius:1px;"></span> FALSE</span>
+                    <span style="display:flex; align-items:center; gap:4px;"><span style="display:inline-block; width:10px; height:10px; background:#27ae60; border-radius:1px;"></span> TRUE</span>
+                </div>
+            </div>
+
+            <!-- Three charts in one row - constrained to page width -->
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; max-width:100%; overflow:hidden;">
+                <div style="background:#f5f5f5; border:1px solid #ddd; border-radius:5px; padding:8px 6px; min-width:0;">
+                    <div style="color:#1a2332; font-size:0.7rem; font-weight:700; margin-bottom:4px;">Result Vs Distribution - All Scores</div>
+                    <div style="height:200px; position:relative;"><canvas id="distChart1"></canvas></div>
+                </div>
+                <div style="background:#f5f5f5; border:1px solid #ddd; border-radius:5px; padding:8px 6px; min-width:0;">
+                    <div style="color:#1a2332; font-size:0.7rem; font-weight:700; margin-bottom:4px;">Result Vs Success | Fail Cohorts</div>
+                    <div style="height:200px; position:relative;"><canvas id="distChart2"></canvas></div>
+                </div>
+                <div style="background:#f5f5f5; border:1px solid #ddd; border-radius:5px; padding:8px 6px; min-width:0;">
+                    <div style="color:#1a2332; font-size:0.7rem; font-weight:700; margin-bottom:4px;">Flag Counts</div>
+                    <div style="height:200px; position:relative;"><canvas id="distChart3"></canvas></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DISC Profile -->
+        <div class="section">
+            <div class="section-title">DISC Profile: Natural vs. Adapted</div>
+            <div class="chart-container">
+                <canvas id="discChart"></canvas>
+            </div>
+            <p style="font-size: 12px; color: #666; margin-top: 12px;"><strong>Note:</strong> {{DISC_NOTE_TEXT}}—{{DISC_NOTE_DETAIL}}.</p>
+        </div>
+
+        <!-- ExcStds Scores -->
+        
+        <!-- Wiring-Fit Check -->
+        <div class="wiring-fit">
+            <div class="wiring-fit-label">DISC Wiring Fit</div>
+            <div class="wiring-fit-content">
+                {{WIRING_FIT_ITEMS}}
+            </div>
+        </div>
+
+        <!-- Motivators & Anti-Motivators (wheel + alignment + standard map + wiring).
+             Built by _pipeline/src/pipeline/motivators_section.py → build_section(respondent).
+             The fragment includes its own <style> block (scoped via .ma-section). -->
+        {{MOTIVATORS_ANTIMOTIVATORS_SECTION}}
+
+        <div class="section">
+            <div class="section-title">Excellence Standards: Dimensional Scorecard</div>
+            <div class="chart-container" style="height: 520px;">
+                <canvas id="excstdsChart"></canvas>
+            </div>
+            <p style="font-size: 12px; color: #666; margin-top: 12px;"><strong>Context:</strong> <span style="font-weight:600;">UPPERCASE = L1 category</span> (overall dimension), indented = L2 sub-dimension. Overall Z|Algo {{ZALGO_OVERALL}} (gold line) vs cohort avg +0.244 (grey line). Green = strength, grey = neutral, red = concern.</p>
+        </div>
+
+        <!-- Talent Attributes Radar -->
+        <div class="section">
+            <div class="section-title">Talent Attributes Radar</div>
+            <div class="chart-container radar">
+                <canvas id="talentRadar"></canvas>
+            </div>
+            <p style="font-size: 12px; color: #666; margin-top: 12px;"><strong>Profile:</strong> {{TALENT_RADAR_PROFILE_TEXT}}–3.5 range — genuine strengths. Two-Sport Athlete is low (1) — no excellence outside HR visible. Wit and Understands Symbolism (marked ⊘) cannot be assessed by the survey and must be evaluated in the interview.</p>
+        </div>
+
+        <!-- Career Timeline -->
+        <div class="section">
+            <div class="section-title">{{CAREER_TIMELINE_TITLE}}</div>
+            {{CAREER_TIMELINE_HTML}}
+        </div>
+
+        <!-- Interview Probes -->
+        <div class="probes-section">
+            <div class="probes-title">Interview Probes: Discovery & Validation</div>
+            <div class="probes-grid">
+                {{INTERVIEW_PROBE_CARDS}}
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            HALE GLOBAL SUCCESS DIAGNOSTICS — Confidential Executive Assessment | {{REPORT_DATE}}
+        </div>
+    </div>
+
+    <script>
+        // DISC Profile Chart
+        const discCtx = document.getElementById('discChart').getContext('2d');
+        new Chart(discCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Dominance', 'Influence', 'Steadiness', 'Conscientiousness'],
+                datasets: [
+                    {
+                        label: 'Natural',
+                        data: [{{DISC_D_NAT}}, {{DISC_I_NAT}}, {{DISC_S_NAT}}, {{DISC_C_NAT}}],
+                        backgroundColor: '#1a2332',
+                        borderRadius: 2,
+                        borderSkipped: false
+                    },
+                    {
+                        label: 'Adapted',
+                        data: [{{DISC_D_ADP}}, {{DISC_I_ADP}}, {{DISC_S_ADP}}, {{DISC_C_ADP}}],
+                        backgroundColor: '#d4a84b',
+                        borderRadius: 2,
+                        borderSkipped: false
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'x',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: { family: '"DM Sans"', size: 12 },
+                            color: '#333',
+                            padding: 16,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1a2332',
+                        padding: 12,
+                        titleFont: { family: '"DM Sans"', size: 12, weight: 600 },
+                        bodyFont: { family: '"DM Sans"', size: 11 },
+                        borderColor: '#d4a84b',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: '#e8eef2' },
+                        ticks: {
+                            font: { family: '"DM Sans"', size: 11 },
+                            color: '#7a8fa3'
+                        }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            font: { family: '"DM Sans"', size: 12, weight: 500 },
+                            color: '#333'
+                        }
+                    }
+                }
+            },
+            plugins: [{
+                id: 'discAnnotations',
+                afterDatasetsDraw: function(chart) {
+                    var ctx = chart.ctx;
+                    var left = chart.chartArea.left;
+                    var right = chart.chartArea.right;
+                    var yScale = chart.scales.y;
+
+                    var y50 = yScale.getPixelForValue(50);
+                    ctx.save();
+                    ctx.strokeStyle = '#b0bec5';
+                    ctx.lineWidth = 1.5;
+                    ctx.setLineDash([6, 4]);
+                    ctx.beginPath();
+                    ctx.moveTo(left, y50);
+                    ctx.lineTo(right, y50);
+                    ctx.stroke();
+                    ctx.fillStyle = '#7a8fa3';
+                    ctx.font = '10px "DM Sans"';
+                    ctx.textAlign = 'right';
+                    ctx.fillText('50%', left - 4, y50 + 3);
+                    ctx.restore();
+
+                    ctx.save();
+                    ctx.font = 'bold 11px "DM Sans"';
+                    ctx.fillStyle = '#c0392b';
+                    ctx.textAlign = 'center';
+                    var meta = chart.getDatasetMeta(1);
+                    meta.data.forEach(function(datapoint, index) {
+                        if (index === 3) {
+                            var props = datapoint.getProps(['x', 'y']);
+                            // {{DISC_ANNOTATION}} — e.g. ctx.fillText('\u26a0 58\u219232', props.x, props.y - 15);
+                        {{DISC_ANNOTATION_CODE}}
+                        }
+                    });
+                    ctx.restore();
+                }
+            }]
+        });
+
+        // ExcStds Scores Chart
+        var excstdsCtx = document.getElementById('excstdsChart').getContext('2d');
+        var excLabels = {{EXCSTDS_LABELS}};
+        var excScores = {{EXCSTDS_SCORES}};
+        var isL1 = {{EXCSTDS_ISL1}};
+        var excColors = excScores.map(function(s, i) {
+            if (s >= 0.5) return isL1[i] ? '#1e8449' : '#27ae60';
+            if (s >= -0.3) return '#95a5a6';
+            if (s >= -1.0) return isL1[i] ? '#c0392b' : '#e74c3c';
+            return '#922b21';
+        });
+        // Optional color overrides for wiring-contradicted or human-vs-algo divergent dimensions
+        // (e.g. excColors[4] = '#e67e22';). Substitute {{EXCSTDS_COLOR_OVERRIDES}} with raw JS
+        // statements OR leave empty — the token must resolve to valid JS on its own line.
+        {{EXCSTDS_COLOR_OVERRIDES}}
+
+        new Chart(excstdsCtx, {
+            type: 'bar',
+            data: {
+                labels: excLabels,
+                datasets: [{
+                    label: 'Z|Algo Score',
+                    data: excScores,
+                    backgroundColor: excColors,
+                    borderRadius: 2,
+                    borderSkipped: false,
+                    barThickness: 14
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1a2332',
+                        padding: 12,
+                        titleFont: { family: '"DM Sans"', size: 12, weight: 600 },
+                        bodyFont: { family: '"DM Sans"', size: 11 },
+                        borderColor: '#d4a84b',
+                        borderWidth: 1,
+                        callbacks: {
+                            label: function(context) {
+                                var level = isL1[context.dataIndex] ? 'L1' : 'L2';
+                                return level + ' Score: ' + context.parsed.x.toFixed(2);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        min: -2,
+                        max: 3,
+                        grid: { color: '#e8eef2' },
+                        ticks: {
+                            font: { family: '"DM Sans"', size: 11 },
+                            color: '#7a8fa3'
+                        }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: {
+                            font: { family: '"DM Sans"', size: 11, weight: 500 },
+                            color: '#333'
+                        }
+                    }
+                }
+            },
+            plugins: [{
+                id: 'excstdsAnnotations',
+                beforeDatasetsDraw: function(chart) {
+                    var ctx2 = chart.ctx;
+                    var left2 = chart.chartArea.left;
+                    var right2 = chart.chartArea.right;
+                    var yScale2 = chart.scales.y;
+
+                    var groups = [];
+                    var gStart = 0;
+                    for (var i = 1; i < isL1.length; i++) {
+                        if (isL1[i]) { groups.push([gStart, i - 1]); gStart = i; }
+                    }
+                    groups.push([gStart, isL1.length - 1]);
+
+                    ctx2.save();
+                    groups.forEach(function(g, gi) {
+                        if (gi % 2 === 0) {
+                            var yTop = yScale2.getPixelForValue(g[0]) - 14;
+                            var yBot = yScale2.getPixelForValue(g[1]) + 14;
+                            ctx2.fillStyle = 'rgba(232, 238, 242, 0.45)';
+                            ctx2.fillRect(left2, yTop, right2 - left2, yBot - yTop);
+                        }
+                    });
+
+                    ctx2.strokeStyle = '#b0bec5';
+                    ctx2.lineWidth = 1;
+                    ctx2.setLineDash([]);
+                    isL1.forEach(function(v, i) {
+                        if (v && i > 0) {
+                            var yPos = (yScale2.getPixelForValue(i) + yScale2.getPixelForValue(i - 1)) / 2;
+                            ctx2.beginPath();
+                            ctx2.moveTo(left2 - 10, yPos);
+                            ctx2.lineTo(right2, yPos);
+                            ctx2.stroke();
+                        }
+                    });
+                    ctx2.restore();
+                },
+                afterDraw: function(chart) {
+                    var ctx3 = chart.ctx;
+                    var ca = chart.chartArea;
+                    var xScale3 = chart.scales.x;
+
+                    ctx3.save();
+                    ctx3.strokeStyle = '#d4a84b';
+                    ctx3.lineWidth = 2;
+                    ctx3.setLineDash([4, 4]);
+                    var overallX = xScale3.getPixelForValue({{ZALGO_OVERALL_NUM}});
+                    ctx3.beginPath();
+                    ctx3.moveTo(overallX, ca.top);
+                    ctx3.lineTo(overallX, ca.bottom);
+                    ctx3.stroke();
+                    ctx3.fillStyle = '#d4a84b';
+                    ctx3.font = 'bold 10px "DM Sans"';
+                    ctx3.textAlign = 'center';
+                    ctx3.fillText('Overall +' + {{ZALGO_OVERALL_NUM}}, overallX, ca.top - 8);
+
+                    ctx3.strokeStyle = '#b0bec5';
+                    ctx3.setLineDash([2, 2]);
+                    var cohortX = xScale3.getPixelForValue({{COHORT_AVG_NUM}});
+                    ctx3.beginPath();
+                    ctx3.moveTo(cohortX, ca.top);
+                    ctx3.lineTo(cohortX, ca.bottom);
+                    ctx3.stroke();
+                    ctx3.fillStyle = '#b0bec5';
+                    ctx3.fillText('Cohort +0.244', cohortX, ca.top - 20);
+                    ctx3.restore();
+                }
+            }]
+        });
+
+        // Talent Attributes Radar
+        var talentCtx = document.getElementById('talentRadar').getContext('2d');
+        new Chart(talentCtx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'Two-Sport Athlete',
+                    'Punctuates Differently',
+                    'Facilitative Mindset',
+                    'Wit \u2298',
+                    'Deep Repertoire',
+                    'Discipline/Routine',
+                    'Understands Symbolism \u2298'
+                ],
+                datasets: [
+                {
+                    label: 'Assessed by Survey',
+                    data: {{TALENT_RADAR_SCORES}},
+                    borderColor: '#d4a84b',
+                    backgroundColor: 'rgba(212, 168, 75, 0.15)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#d4a84b',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    spanGaps: false
+                },
+                {
+                    label: 'Not Evaluated (interview only)',
+                    data: [null, null, null, 0, null, null, 0],
+                    borderColor: '#b0bec5',
+                    backgroundColor: 'rgba(176, 190, 197, 0.08)',
+                    borderWidth: 1,
+                    borderDash: [4, 4],
+                    pointBackgroundColor: '#b0bec5',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointStyle: 'crossRot',
+                    pointHoverRadius: 8,
+                    spanGaps: false
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            font: { family: '"DM Sans"', size: 11 },
+                            color: '#555',
+                            padding: 16,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1a2332',
+                        padding: 12,
+                        titleFont: { family: '"DM Sans"', size: 12, weight: 600 },
+                        bodyFont: { family: '"DM Sans"', size: 11 },
+                        borderColor: '#d4a84b',
+                        borderWidth: 1,
+                        callbacks: {
+                            label: function(context) {
+                                if (context.raw === null) return null;
+                                if (context.datasetIndex === 1) return 'Not evaluated by survey - interview only';
+                                return context.dataset.label + ': ' + context.raw + ' / 5';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 5,
+                        grid: { color: '#e8eef2' },
+                        ticks: {
+                            font: { family: '"DM Sans"', size: 10 },
+                            color: '#7a8fa3',
+                            stepSize: 1
+                        },
+                        pointLabels: {
+                            font: { family: '"DM Sans"', size: 12, weight: 500 },
+                            color: '#333'
+                        }
+                    }
+                }
+            }
+        });
+
+        // ── Population Distribution Charts (PBI-style) ────────────────
+        const pbiFont = { size: 6, family: "'DM Sans', sans-serif" };
+        const pbiGrid = 'rgba(0,0,0,0.08)';
+
+        // Helpers: 2-row labels, collapse empty bins, reverse arrays
+        function splitLabel(lbl) { const p = lbl.split(' to '); return p.length === 2 ? p : [lbl]; }
+        function collapseBins(labels, datasets, markerBins) {
+            const keep = labels.map((_, i) => datasets.some(d => d[i] > 0));
+            const idxMap = []; let j = 0;
+            keep.forEach((k, i) => { if (k) { idxMap[i] = j; j++; } else { idxMap[i] = -1; } });
+            return {
+                labels: labels.filter((_, i) => keep[i]),
+                datasets: datasets.map(d => d.filter((_, i) => keep[i])),
+                markers: markerBins.map(b => idxMap[b] !== undefined ? idxMap[b] : -1)
+            };
+        }
+        function reverseAll(labels, datasets, markerBins) {
+            const n = labels.length;
+            return {
+                labels: [...labels].reverse(),
+                datasets: datasets.map(d => [...d].reverse()),
+                markers: markerBins.map(b => b >= 0 ? n - 1 - b : -1)
+            };
+        }
+
+        // Chart 1: Dual histogram — Z|Algo vs Z|Human full population (hardcoded, pre-collapsed)
+        // Tokens arrive as pre-split 2-element arrays (["X","Y"]); do NOT call splitLabel on them.
+        const zLabels2 = {{DIST_ZLABELS}};
+        const algoCounts = {{DIST_ALGO_COUNTS}};
+        const humanCounts = {{DIST_HUMAN_COUNTS}};
+        const jAlgoBin = {{DIST_JALGO_BIN}};
+        const jHumanBin = {{DIST_JHUMAN_BIN}};
+
+        // PBI-style marker plugin
+        const pbiMarkerPlugin = {
+            id: 'pbiMarkers',
+            afterDatasetsDraw(chart) {
+                if (!chart.config._markers) return;
+                const ctx = chart.ctx;
+                const meta = chart.getDatasetMeta(0);
+                chart.config._markers.forEach(m => {
+                    if (m.binIdx < 0) return;
+                    const barEl = meta.data[m.binIdx];
+                    if (!barEl) return;
+                    const x = barEl.x;
+                    const barTop = barEl.y;
+                    const y = Math.min(barTop - 14, chart.chartArea.top + 6 + (m.offsetY || 0));
+                    ctx.save();
+                    if (m.shape === 'triangle') {
+                        const s = 6;
+                        ctx.fillStyle = '#1a1a1a';
+                        ctx.beginPath();
+                        ctx.moveTo(x, y - s);
+                        ctx.lineTo(x - s * 0.87, y + s * 0.5);
+                        ctx.lineTo(x + s * 0.87, y + s * 0.5);
+                        ctx.closePath();
+                        ctx.fill();
+                    } else if (m.shape === 'diamond') {
+                        const s = 5;
+                        ctx.strokeStyle = '#555';
+                        ctx.lineWidth = 1.5;
+                        ctx.beginPath();
+                        ctx.moveTo(x, y - s);
+                        ctx.lineTo(x + s * 0.7, y);
+                        ctx.lineTo(x, y + s);
+                        ctx.lineTo(x - s * 0.7, y);
+                        ctx.closePath();
+                        ctx.stroke();
+                    }
+                    ctx.restore();
+                });
+            }
+        };
+        Chart.register(pbiMarkerPlugin);
+
+        const c1 = new Chart(document.getElementById('distChart1'), {
+            type: 'bar',
+            data: {
+                labels: zLabels2,
+                datasets: [
+                    { label: 'Z|Algo', data: algoCounts, backgroundColor: '#8c8c8c', borderWidth: 0, barPercentage: 0.9, categoryPercentage: 0.88 },
+                    { label: 'Z|Human', data: humanCounts, backgroundColor: '#c8c8c8', borderWidth: 0, barPercentage: 0.9, categoryPercentage: 0.88 }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                layout: { padding: { top: 20, right: 2, left: 2 } },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { ticks: { color: '#555', font: pbiFont, maxRotation: 0, autoSkip: false }, grid: { display: false } },
+                    y: { ticks: { color: '#555', font: pbiFont }, grid: { color: pbiGrid }, beginAtZero: true }
+                }
+            }
+        });
+        c1.config._markers = [
+            { binIdx: jAlgoBin, shape: 'triangle' },
+            { binIdx: jHumanBin, shape: 'diamond' }
+        ];
+        c1.update();
+
+        // Chart 2: Success vs Fail cohorts (hardcoded, empty bins omitted, last label ends with "+")
+        const sfLabels2 = {{DIST_SF_LABELS}};
+        const failData2 = {{DIST_FAIL_COUNTS}};
+        const successData2 = {{DIST_SUCCESS_COUNTS}};
+        const sfAlgoBin = {{DIST_SF_ALGO_BIN}};
+        const sfHumanBin = {{DIST_SF_HUMAN_BIN}};
+
+        const c2 = new Chart(document.getElementById('distChart2'), {
+            type: 'bar',
+            data: {
+                labels: sfLabels2,
+                datasets: [
+                    { label: 'FALSE', data: failData2, backgroundColor: '#e74c3c', borderWidth: 0, barPercentage: 0.9, categoryPercentage: 0.9 },
+                    { label: 'TRUE', data: successData2, backgroundColor: '#27ae60', borderWidth: 0, barPercentage: 0.9, categoryPercentage: 0.9 }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                layout: { padding: { top: 20, right: 2, left: 2 } },
+                plugins: {
+                    legend: { labels: { color: '#333', font: { size: 7 }, boxWidth: 7, padding: 6 }, position: 'top' }
+                },
+                scales: {
+                    x: { ticks: { color: '#555', font: pbiFont, maxRotation: 0, autoSkip: false }, grid: { display: false } },
+                    y: { ticks: { color: '#555', font: pbiFont }, grid: { color: pbiGrid }, beginAtZero: true }
+                }
+            }
+        });
+        c2.config._markers = [
+            { binIdx: sfAlgoBin, shape: 'triangle' },
+            { binIdx: sfHumanBin, shape: 'diamond' }
+        ];
+        c2.update();
+
+        // Chart 3: Flag Counts (natural order — low flags left, high flags right)
+        const flagLabels3 = {{DIST_FLAG_LABELS}};
+        const flagCounts3 = {{DIST_FLAG_COUNTS}};
+        const jFlagBin3 = {{DIST_FLAG_BIN}};
+
+        const c3 = new Chart(document.getElementById('distChart3'), {
+            type: 'bar',
+            data: {
+                labels: flagLabels3,
+                datasets: [{
+                    data: flagCounts3,
+                    backgroundColor: '#c8c8c8',
+                    borderWidth: 0,
+                    barPercentage: 0.88,
+                    categoryPercentage: 0.88
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                layout: { padding: { top: 20, right: 2, left: 2 } },
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { ticks: { color: '#555', font: pbiFont, maxRotation: 0, autoSkip: false }, grid: { display: false } },
+                    y: { ticks: { color: '#555', font: pbiFont }, grid: { color: pbiGrid }, beginAtZero: true, position: 'right' }
+                }
+            }
+        });
+        c3.config._markers = [
+            { binIdx: jFlagBin3, shape: 'triangle' }
+        ];
+        c3.update();
+
+    </script>
+</body>
+</html>

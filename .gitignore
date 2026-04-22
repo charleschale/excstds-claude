@@ -1,0 +1,76 @@
+# ===================================================================
+# .gitignore for charleschale/excstds-claude (the "brains" repo)
+# ===================================================================
+# Strategy: maximize what gets backed up. Push all methodology, all
+# tooling, all prototype working notes, all reference data. Exclude
+# only:
+#   1. Things with their own backup (_pipeline lives in its own repo)
+#   2. Polished client deliverables (kept local for confidentiality)
+#   3. Raw respondent data pulls (regeneratable from the pipeline)
+#   4. Secrets (.env, credentials)
+#   5. Regeneratable bloat (node_modules, .venv, __pycache__)
+#   6. The brains snapshot zip (regeneratable; circular if included)
+# ===================================================================
+
+# --- Has its own backup repo ---
+_pipeline/
+
+# --- Polished client deliverables (real-name reports, kept LOCAL) ---
+_reports/
+
+# --- Raw respondent data pulls (regeneratable from pipeline) ---
+_respondents/
+
+# --- Stray accidental directory ---
+C:/
+
+# --- Regeneratable artifacts ---
+brains_snapshot_*.zip
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.pytest_cache/
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+~$*
+
+# --- Secrets — never commit ---
+.env
+.env.*
+!.env.example
+
+# ===================================================================
+# What WILL be committed:
+#
+#   Top-level methodology + ops:
+#     METHODOLOGY.md, PROJECT_NOTES.md, dax_queries.md
+#     HANDOFF_2026-04-17_wedge_validation.md
+#     BUILD_REPORT_HECHLER.txt
+#     BACKUP_MANIFEST.md, BACKUP_PUSH_GUIDE.md
+#     Histogram Data.xlsx          (population reference)
+#     l2_wedge_map.xlsx
+#     CH NOTES TO RUN.txt, message for claude.txt, test_write.txt   (harmless empties)
+#
+#   _templates/                    (HTML + md templates)
+#   _skills/                       (the report skill + customizations)
+#   _session_notes/                (session notes documenting methodology decisions)
+#   deprec/                        (old chat transcripts with methodology context)
+#
+#   Prototype-build working folders (methodology evidence):
+#     bill_george/                 (DRAFT, extracted TTI, scoring xlsx)
+#     isaiah/                      (DRAFT, L1 rollup, flags, question bank)
+#     MnM/                         (hiring report DRAFT)
+#     20260414.mnm.riggs@gmail.com/  (single-respondent working folder)
+#     respondents/                 (loose respondent xlsx pulls — older convention)
+# ===================================================================
