@@ -1,23 +1,34 @@
 <#
 .SYNOPSIS
-    Sync a workspace skill to the Claude Desktop plugin directory.
+    Sync a workspace skill to the Claude Desktop plugin directory AND back up to git.
 .DESCRIPTION
-    Copies a skill folder from _skills\<name>\ in this workspace to the live
-    Claude Desktop plugin location, so the next Claude session picks up your
-    latest edits. Restart Claude Desktop after running this.
+    Two steps:
+      1) LOCAL SYNC — copy _skills\<name>\ -> every installed Claude Desktop
+         skill plugin folder, so the next Claude session picks up your edits.
+         Restart Claude Desktop after running.
+      2) GIT BACKUP — stage just _skills\<name>\, commit, and push to the brains
+         repo on GitHub. Other working changes elsewhere in the repo are NOT
+         swept in (intentional — keeps this commit focused).
+
+    Step 2 is on by default. Pass -NoBackup to skip it (e.g., if you're offline
+    or have a half-finished commit you don't want to push yet).
 
     Usage:
-      Right-click this file → "Run with PowerShell"  (syncs the 'report' skill)
-      OR in a PowerShell prompt: .\sync-skill.ps1
-      OR for a different skill:  .\sync-skill.ps1 -Skill other-skill-name
+      Right-click this file -> "Run with PowerShell"   (full sync + backup of 'report')
+      .\sync-skill.ps1                                  (same)
+      .\sync-skill.ps1 -Skill xlsx                      (different skill)
+      .\sync-skill.ps1 -NoBackup                        (sync only, skip git)
+      .\sync-skill.ps1 -Message "Add Step 0 orient pass" (custom commit message)
 
-    If you get a "running scripts is disabled" error, open PowerShell and run:
+    First-time setup (if "running scripts is disabled"):
       Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-    (one-time setup; answer Yes to the prompt)
+    (one-time; answer Yes to the prompt)
 #>
 
 param(
-    [string]$Skill = "report"
+    [string]$Skill = "report",
+    [switch]$NoBackup,
+    [string]$Message = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -73,8 +84,74 @@ foreach ($dst in $pluginCopies) {
 }
 
 Write-Host ""
+Write-Host "Local sync complete. Restart Claude Desktop to pick up the changes." -ForegroundColor Yellow
+Write-Host ""
+
+# --------------------------------------------------------------------------
+# Git backup -- stage just _skills\<Skill>, commit, push.
+# Disabled with -NoBackup. Other unrelated working changes are intentionally
+# left alone (we only stage the skill folder, not the whole repo).
+# --------------------------------------------------------------------------
+if ($NoBackup) {
+    Write-Host "Skipping git backup (-NoBackup passed)." -ForegroundColor DarkGray
+} else {
+    Write-Host "=== Git backup ===" -ForegroundColor Cyan
+
+    # Native git commands return non-zero exit codes for normal signaling
+    # (e.g. `git diff --quiet` returns 1 when there ARE differences). Don't
+    # let $ErrorActionPreference="Stop" treat that as a script-fatal error.
+    $prevErrorPref = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+
+    Push-Location $PSScriptRoot
+    try {
+        # Verify we're in a git repo.
+        & git rev-parse --is-inside-work-tree *> $null
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "WARN: $PSScriptRoot is not a git repo -- skipping backup." -ForegroundColor Yellow
+        } else {
+            $skillRel = "_skills/$Skill"
+
+            # Stage only the skill folder. Other working changes are untouched.
+            & git add -- $skillRel
+            if ($LASTEXITCODE -ne 0) {
+                Write-Host "ERROR: 'git add $skillRel' failed." -ForegroundColor Red
+            } else {
+                # Anything actually staged?
+                & git diff --cached --quiet -- $skillRel
+                $hasStaged = ($LASTEXITCODE -ne 0)
+
+                if (-not $hasStaged) {
+                    Write-Host "No changes in $skillRel to commit." -ForegroundColor DarkGray
+                } else {
+                    $commitMsg = if ($Message) { $Message } else { "Sync skill: $Skill" }
+
+                    & git commit -m $commitMsg -- $skillRel
+                    if ($LASTEXITCODE -ne 0) {
+                        Write-Host "ERROR: git commit failed. Commit was NOT made." -ForegroundColor Red
+                    } else {
+                        Write-Host "COMMITTED: $commitMsg" -ForegroundColor Green
+
+                        & git push
+                        if ($LASTEXITCODE -eq 0) {
+                            Write-Host "PUSHED to remote." -ForegroundColor Green
+                        } else {
+                            Write-Host "WARN: git push failed. Commit is local --" -ForegroundColor Yellow
+                            Write-Host "      run 'git push' manually when you're back online / authenticated." -ForegroundColor Yellow
+                        }
+                    }
+                }
+            }
+        }
+    } finally {
+        Pop-Location
+        $ErrorActionPreference = $prevErrorPref
+    }
+}
+
+Write-Host ""
 Write-Host "===" -ForegroundColor Cyan
-Write-Host "Done. NEXT: Close and reopen Claude Desktop to pick up the changes." -ForegroundColor Yellow
+Write-Host "Done." -ForegroundColor Cyan
 Write-Host ""
 
 # Keep the window open so you can read the output before it closes.
