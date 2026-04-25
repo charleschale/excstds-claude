@@ -7,6 +7,8 @@ description: Generate Excellence Standards hiring-manager reports or talent coac
 
 This skill orchestrates the full report generation workflow: data pull, analysis, narrative generation, chart computation, template fill, and HTML output. It replaces the manual process of opening Power BI, exporting data, and hand-filling templates.
 
+**Before doing any work, orient in the project files — see Step 0 in Workflow below.** This SKILL.md is necessary but not sufficient. METHODOLOGY.md, PROJECT_NOTES.md, recent session notes, and the canonical templates carry the latest framings and brand rules and frequently update ahead of this skill. Read them before drafting anything.
+
 ## Quick Start (what to show the user)
 
 When this skill triggers, begin by gathering five inputs UP FRONT (before doing any work). Use AskUserQuestion for the multiple-choice items; ask for the free-text/attachment items in the same turn:
@@ -30,6 +32,22 @@ When this skill triggers, begin by gathering five inputs UP FRONT (before doing 
 5. **Format** â€” Graphical (full HTML with charts) or Text (narrative-only markdown). Default: Graphical.
 
 ## Workflow
+
+### Step 0: Orient — read the project files (in parallel with Quick Start input collection)
+
+This skill operates inside a working repo with substantial accumulated methodology that is often newer than the SKILL.md you just read. **Before drafting any narrative, computing any chart, or filling any template — and ideally in parallel with the user uploading their TTI PDF and LinkedIn URL — read the project files in this order:**
+
+1. **`METHODOLOGY.md`** (workspace root) — the integrated coaching framework: Three-Axes, Hard-to-Learn signals, Wiring-Fit, flag-by-flag canonical framings. METHODOLOGY.md often gets updated before this SKILL.md catches up. If a rule here conflicts with METHODOLOGY.md, METHODOLOGY.md wins and this SKILL.md needs an update.
+2. **`PROJECT_NOTES.md`** (workspace root) — running log of decisions, brand rules, and resolved bugs. Read at minimum the most recent five entries. If the request touches an area that has been recently revised (a flag, a section, a chart), read further back.
+3. **Most recent session note(s)** under `_session_notes/` (or equivalent) — what was learned in the last one or two builds. Repeated mistakes show up here first, before they reach METHODOLOGY.md or this SKILL.md.
+4. **`_templates/hiring_report_TEMPLATE.html` AND `_templates/coaching_guide_TEMPLATE.html`** — the source-of-truth templates for token names, section order, and structural rules. NEVER use a previously-filled candidate report as the "example to match" — always use the template.
+5. **The most recent canonical build script** for the matching variant (`build_<name>_hiring.py` or `build_<name>_coaching.py`) — the working reference implementation. Skim it before writing a new build script; never fork an old one without verifying conventions still apply.
+
+After the orient pass, write a one-line summary in the working log of each file's last update relevant to this run. Example: *"PROJECT_NOTES (most recent entry): Role-Fit section now mandatory in Variant 2 (2026-04-22). METHODOLOGY: Initiating Accountability framing requires structural-vs-in-the-room split."* This forces an explicit acknowledgement that the orient pass actually happened — a silent skip is the most common failure mode.
+
+**If the working directory is not connected** (no folder selected, or `METHODOLOGY.md` / `PROJECT_NOTES.md` missing): stop and flag it to the user before proceeding to Step 1. The report should not be built outside the brains repo — the templates, methodology, and prior-build references all live there. Ask the user to mount the Excellence Standards workspace folder before continuing.
+
+**Memory check.** In addition to the project files, the user's auto-loaded memory entries (visible in the `MEMORY.md` index at the top of the conversation) carry persistent feedback and project context. If a memory entry covers something that should now live in METHODOLOGY.md or PROJECT_NOTES.md (e.g., a brand rule, a flag-framing decision, a structural-template change), flag the duplication during the orient pass and propose either consolidating it into the project files or removing the redundant memory entry.
 
 ### Step 1: Pull respondent data
 
