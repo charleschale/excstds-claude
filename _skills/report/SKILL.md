@@ -11,9 +11,9 @@ This skill orchestrates the full report generation workflow: data pull, analysis
 
 ## Quick Start (what to show the user)
 
-When this skill triggers, begin by gathering five inputs UP FRONT (before doing any work). Use AskUserQuestion for the multiple-choice items; ask for the free-text/attachment items in the same turn:
+When this skill triggers, begin by gathering six inputs UP FRONT (before doing any work). Use AskUserQuestion for the multiple-choice items; ask for the free-text/attachment items in the same turn:
 
-1. **Key3** â€” the respondent identifier (format: `YYYYMMDD.email@domain.com`). If the user already provided it inline with the command (e.g. `/report 20260415.firstname.lastname@example.com`), skip asking.
+1. **Key3** â€” the respondent identifier (format: `YYYYMMDD.email@domain.com`). If the user already provided it inline with the command (e.g. `/report 20260415.firstname.lastname@example.com`), skip asking. **If the email domain is `.edu` or otherwise indicates the respondent is in college (Yale, Harvard, Stanford, etc.), this is a strong signal that input #6 below applies â€” the survey was likely taken in pretend-CEO mode and the framing of the entire report changes accordingly.**
 2. **TTI Report** â€” the TTI Talent Insights PDF for this respondent. The analysis requires TTI data (DISC profile, Driving Forces) for the Wiring-Fit Check and corroboration on hard-to-learn signals. Ask the user to upload the TTI PDF. If they've already attached it, skip asking.
 3. **LinkedIn URL** â€” the respondent's LinkedIn profile URL. This is REQUIRED up front, not optional. LinkedIn is the single richest external-validator file on the respondent â€” promotion history, awards, board/volunteer leadership, education, and activity together form the Talent signal (see Three-Axes Framework in Step 3). Always ask for this alongside Key3 and TTI. If the user says they don't have it or can't share it, proceed but flag in the report that the Talent axis read is constrained to instrument data and self-reported career history (Non-Scorable tab 9911â€“9938).
 
@@ -30,6 +30,12 @@ When this skill triggers, begin by gathering five inputs UP FRONT (before doing 
    After the sweep, write a one-line summary in the working notes of what was found in EACH of these sections (even if the answer is "none" or "empty"). If a section was not checked, the sweep is incomplete â€” re-run it. Record the sweep completion in the report skill's working log.
 4. **Report type** â€” Hiring (interview prep for hiring manager) or Talent (coaching guide for the respondent). Default: Hiring.
 5. **Format** â€” Graphical (full HTML with charts) or Text (narrative-only markdown). Default: Graphical.
+6. **Survey mode â€” actual-leader vs. pretend-CEO.** Critical for college and early-career respondents. Many of these respondents are explicitly asked to take the survey *as if they were a CEO with direct reports*, even though they have not held that seat. Almost every college student takes it this way. The framing of the entire coaching guide changes substantially based on which mode applied. Ask:
+
+   - **Actual-leader mode (default for senior respondents)** â€” the respondent answered about their current direct-report leadership. Coaching frame: *"leader's burden picked up here, gap there â€” here's how to refine the practice."*
+   - **Pretend-CEO mode (default when a `.edu` domain or Q9921=Student or any current-role indication of college / early-career)** â€” the respondent answered as if they were a CEO they imagine becoming, even though they have not held that seat. Coaching frame: *"good instincts here, against-standard instincts there â€” refine before the seat arrives."*
+
+   When the answer is pretend-CEO, the entire signature pattern, all flag cards, and all per-answer Impact items must be framed in the *current-instincts-about-leadership* lens, not the *current-leadership-behavior* lens. The respondent has not yet had a leader's-burden moment; the coaching invitation is to refine the instincts now, while the cost of practice is low (peer-team contexts, student-leadership operations), so that when the role arrives the version of them who walks into it has already done the work most first-time leaders have to do under pressure. See METHODOLOGY.md â€" "Pretend-CEO mode â€" framing rules" â€” for the full framing rule set including: (a) "good instincts / against-standard instincts" two-bucket pattern; (b) the four common-cohort against-standard instincts (Lower Standards for Others than Self, cannot-be-outvoted, no-extreme-ownership-of-team, approval-from-others-matters); (c) the ideological-conformity nuance on the Pleasing thread; (d) Q119 as a "woke test" requiring a careful walk-through; (e) Q63 as a "requiring excellence produces respect" reframe; (f) Q125 as a "B-grade = F-grade" gateway-belief test where Mixed-severity Conditional Belief carries full weight.
 
 ## Workflow
 

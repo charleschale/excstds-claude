@@ -1,6 +1,40 @@
 # Excellence Standards Report System — Project Notes
 
-*Last updated: April 17, 2026*
+*Last updated: April 25, 2026*
+
+---
+
+## Recent changes (2026-04-25) — Alba Quintas Núñez run + Pretend-CEO mode codification
+
+The Alba Quintas Núñez coaching guide build (Yale undergraduate, top-decile pretend-CEO file) surfaced a fundamental framing issue that had been latent in the methodology and now has dedicated treatment.
+
+**Pretend-CEO mode codified in METHODOLOGY.md.** Almost every college student takes the Excellence Standards survey *as if they were a CEO with direct reports*, even though they have not held that seat. The framing of the entire deliverable changes substantially under this mode. The core change: gaps in the file are framed as *"against-standard instincts worth refining before the seat arrives"* rather than as *"leader's burden not yet picked up."* Both versions produce the same Impact and Teach items; only the language of the Signature Pattern, the introductory framing of each card, and the Closing Note changes.
+
+**SKILL.md Quick Start gains a 6th input:** survey-mode question (actual-leader vs pretend-CEO). Trigger conditions for pretend-CEO default: `.edu` domain, Q9921 = "Student", Q106 indicates a student / college position, age inferable from career history is under ~25.
+
+**Four common-cohort against-standard instincts** named explicitly in METHODOLOGY: holding yourself to a higher standard than others (Lower Stds for Others than Self flag), cannot-be-outvoted (Q5), team-can-be-bad-independently-of-leader (Q61), approval-from-others-matters (Q131 + Cares About Others Not Their Approval L2). These cluster — when one is present, the others usually are too.
+
+**Three new flag / question framings codified in METHODOLOGY (with full coaching walk-throughs):**
+
+- **Q63 as a "requiring excellence produces respect" reframe.** Many respondents — particularly young people from harder backgrounds where respect was hard-earned — read "requiring excellence" and "showing respect" as opposite ends of the same axis. The admired-leader frame inverts that: requiring excellence *is* the highest form of respect. Easing the demand looks like respect on the surface; over time the team experiences it as the leader not believing they can rise. This reframe applies in both actual-leader and pretend-CEO mode and is one of the most consistently valuable coaching points in the instrument.
+- **Q119 as a "woke test" — full walk-through required.** One of the most reliably-failed questions among smart, civically-engaged college students. Failure pattern: students answer 4 or 5 (FALSE), reflecting the academic-environment instinct that platforms come with responsibility. Coaching response is never dismissal — it is a careful four-part walk-through: acknowledge the cohort-typical instinct → walk through the three predictable consequences (lightning rod / team fractures / mission dilution) → distinguish what the discipline is and is not (NOT silencing personal views; the discipline is mission-platform discipline) → connect to the broader Pleasing thread (mission-loyalty over in-group-loyalty).
+- **Q125 as a "B-grade = F-grade" gateway-belief test.** Mixed Conditional Belief is *not* a soft version of Severe Conditional Belief. There is effectively no B-grade on the gateway-belief questions: either you believe in people in advance, or you do not, and the team feels the difference. The Mixed-level finding carries effectively the same coaching weight as Severe and must never be soft-pedaled.
+
+**Ideological-conformity nuance on the Pleasing pattern.** The Pleasing thread is not only about wanting personal popularity. The harder version, especially common in academic environments, is *pleasing the prevailing ideological or cultural moment* — deferring to the positions the in-group expects, because taking those positions feels like the right thing rather than like pleasing. This nuance must be named explicitly when the respondent is from an academic environment and shows the Pleasing pattern, because the in-group-loyalty version is invisible to the respondent (it does not feel like pleasing) and therefore harder to refine without naming.
+
+**DISC bar colors in the wiring panel — fixed in pipeline source.** The motivators-section module previously rendered DISC bars in the classic palette (D=red, I=orange, S=green, C=blue), which created false visual rhyme with the L2 alignment grammar (blue=motivator-strong, green=against-the-grain, tan=anti-aligned-weak, red=motivator-weak). The DISC bar colors are now monochrome (`#1a2332`), removing the false signal. Change is in `_pipeline/src/pipeline/motivators_section.py` and propagates to every future report.
+
+**Voice rules tightened:**
+- Never write *"this is a frame that has to be honest"* or any variant. Implies the rest of the report is dishonest.
+- In pretend-CEO mode, replace *"leader's burden not yet picked up"* with *"against-standard instincts worth refining before the seat arrives."*
+- The "good instincts / against-standard instincts" two-bucket Signature Pattern structure is canonical for pretend-CEO files.
+
+**Local-run backup path documented.** When the Render-hosted pipeline fails (typically because SiteGround's network firewall blocks Render's egress IPs at the layer above cPanel's "Manage Remote Hosts"), the same pipeline can run locally from the user's laptop — Power BI is reachable via HTTPS, MySQL is reachable from non-Render IPs, and `_pipeline/scripts/run_local.py` already does the orchestration. Secrets backup at `_pipeline/.env.local-backup.md` (gitignored as `.env.*`). Full instructions and rotation map in that file.
+
+**Deliverables produced:**
+- `_reports/Quintas-Nunez_Alba_coaching_guide.html` — pretend-CEO Variant 1 coaching guide.
+- `_reports/Quintas-Nunez_Alba_coaching_guide.pdf` (and v2, v3 iterations).
+- `_pipeline/scripts/build_alba_coaching.py`, `_pipeline/scripts/make_pdf_alba.js` — build scripts for the canonical pipeline.
 
 ---
 

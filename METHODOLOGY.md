@@ -308,3 +308,95 @@ The seat description is a separate one-line caption at the top of the box (Serie
 Template tokens: `{{ROLE_FIT_TITLE}}`, `{{ROLE_FIT_SEAT}}`, `{{ROLE_FIT_EASY}}`, `{{ROLE_FIT_HARD}}`. CSS classes: `.role-fit-box`, `.role-fit-grid`, `.role-fit-col.easy`, `.role-fit-col.hard`. The hiring template ships these as canonical from this build forward.
 
 QA gate adds these checks: `role-fit-box` ≥ 1, `role-fit-col easy` ≥ 1, `role-fit-col hard` ≥ 1, presence of "What Will Be Easy" + "What Will Be Hard" labels, and a seat-name reference (e.g., "Series B" / "Series A" / "VP" / "Director" matching the supplied seat shape).
+
+---
+
+## Pretend-CEO mode — framing rules
+
+Codified after the Alba Quintas Núñez coaching guide (April 2026, Yale undergraduate). Many respondents — and almost every college student — take the Excellence Standards survey explicitly *as if they were a CEO with direct reports*, even though they have not held that seat. Yale advises this approach when the respondent has no actual direct reports to assess against. The framing of the entire deliverable changes substantially under this mode and the change is non-trivial enough to deserve a dedicated section in the methodology.
+
+### When pretend-CEO mode applies
+
+Trigger conditions, in order of strength:
+
+1. The user explicitly confirms it at intake (the SKILL.md Quick Start input #6 prompt).
+2. The Key3 email domain is `.edu` or otherwise indicates a college student.
+3. The Non-Scorable tab Q9921 (prior role) reads "Student", or Q9931 (role before that) reads "Student".
+4. The Non-Scorable tab Q106 (current role / title) reads as a student or college position rather than as a CEO / executive seat.
+5. The respondent's age, inferable from career history Q9911–Q9938, is under ~25.
+
+When any of these hold, default to pretend-CEO mode. Confirm with the user up front — never default silently, because an actual-leader respondent who happens to be young (e.g., a 24-year-old founder-CEO) needs the actual-leader framing.
+
+### What changes in pretend-CEO mode
+
+The substance of the analysis does not change. The L1/L2 scores, flags, Impact and Teach top-tens, TTI wiring composite, and Driving Forces composite all read the same. **What changes is the lens through which the data is interpreted in narrative.**
+
+- **Actual-leader frame:** the file shows current behavioral leadership patterns. Gaps are described as "leader's burden not yet picked up." Coaching invitation is to refine practice while in the seat.
+- **Pretend-CEO frame:** the file shows current *instincts about what good leadership looks like*, before the seat. Gaps are described as "against-standard instincts worth refining before the seat arrives." Coaching invitation is to train the instincts now, in peer-team contexts and student-leadership operations, so that when the seat arrives the starting point is closer to the admired pattern than the average first-time leader's.
+
+Both frames produce the same set of Impact and Teach items. Only the language in the Signature Pattern, the introductory framing of each Flag-Driven and per-answer card, and the Closing Note changes.
+
+### The "good instincts / against-standard instincts" structural pattern
+
+In pretend-CEO mode, the Signature Pattern leads with credibility (the activity record + the cohort-relative top-decile score) and pivots to a two-bucket structural read:
+
+1. **Where the instincts align with the standard.** Name the L1 strengths above one standard deviation. These are the parts of leadership the respondent already has the instinct for. Most pretend-CEOs at twenty have several. For a top-decile respondent, this list will be remarkable for its length.
+2. **Where the instincts go against the standard.** Name the four-or-five flags or per-answer findings that show against-standard instincts, framed as instincts to refine *before* the seat arrives. The phrase "untrained instincts harden into habits when the seat actually arrives" captures the urgency.
+
+### The four common-cohort against-standard instincts (in Yale-equivalent populations)
+
+These four show up repeatedly in pretend-CEO files of high-achieving college students. When any one of them is present, the others are usually too — they cluster, because they share a common root (the leader's burden has not yet been imagined picked up).
+
+1. **Holding yourself to a higher standard than others.** Lights the *Lower Standards for Others than Self* flag. The admired pattern is the reverse — admired leaders expect *more* of others than of themselves, because they admire them. Holding yourself to a higher standard sounds humble; in practice it means the leader fills the gap by doing the work, and the team never gets the chance to rise.
+2. **A leader cannot be outvoted.** Q5 ("my team can outvote me") answered toward "cannot." A leader the team cannot overrule is the boss; a leader the team can overrule is the conductor. The boss model scales to one person's judgment; the conductor model scales to the team's collective judgment.
+3. **The team can be at fault independently of the leader.** Q61 ("there are no bad teams, only bad leaders") answered toward disagreement. The admired stance is extreme ownership: when the team is not delivering, the work to do sits on the leader side first.
+4. **Approval from others matters at the threshold.** Q131 (require excellence vs. require respect/approval) answered middle-of-scale or toward approval; *Cares About Others Not Their Approval* L2 sitting low. The pattern is wanting to be liked-and-effective at once and softening on the "effective" side when discomfort would be the more developmental act.
+
+### The ideological-conformity nuance on the Pleasing thread
+
+The Pleasing pattern is not only about wanting personal popularity — that is the easier version to spot and to coach. The harder version, especially common in Yale and similar academic environments, is *pleasing the prevailing ideological or cultural moment*: deferring to the positions the in-group expects, because taking those positions feels like the right thing rather than like pleasing. This nuance must be named explicitly when the respondent is from an academic environment and shows the Pleasing pattern, because the in-group-loyalty version is invisible to the respondent (it does not feel like pleasing) and therefore harder to refine without naming.
+
+The Q119 answer (see below) is one expression of this nuance. When Q119 fires in a pretend-CEO file, name the ideological-conformity version of pleasing in the Signature Pattern's Pleasing-thread paragraph.
+
+### Q119 as a "woke test" — full walk-through required
+
+**Q119:** *"When leaders take a stance and attempt to do the 'right' thing about issues unconnected to the core mission of the organization, everyone loses — especially the leader."* Scale 1-TRUE / 5-FALSE; admired answer is 1 (TRUE).
+
+This is one of the most reliably-failed questions in the entire instrument among smart, civically-engaged college students. The failure pattern: students answer 4 or 5 (FALSE), reflecting the prevailing academic-environment instinct that platforms come with responsibility, that silence on important issues is itself a position, and that leaders should use visibility to advance causes they believe in.
+
+The coaching response is **never** dismissal of the respondent's values. It is a careful walk-through of the rationale. The card for Q119 in pretend-CEO files should always include:
+
+1. **Acknowledge the cohort-typical instinct** the answer comes from. Smart, civically-engaged students at Yale (and similar campuses) are taught — explicitly and implicitly — that platforms come with responsibility. There is integrity in that instinct.
+2. **Walk through the three predictable consequences** when leaders speak outside the lane: (a) the leader becomes a lightning rod (whichever side the leader takes, the other side reads it as official organizational endorsement and feels disenfranchised); (b) the team fractures internally (teammates with different views feel they cannot speak honestly without consequence; collaborative spirit erodes); (c) the mission gets diluted (energy that should go to the work goes to managing public-statement controversies).
+3. **Distinguish what the discipline is and is not.** The discipline is *not* silencing the leader's personal views. The respondent may hold strong positions and should hold them. The discipline is choosing not to use the *leadership platform* for views unconnected to the role's mission. Personal positions can be voiced from the respondent's own name and platform — not from the org's.
+4. **Connect to the broader Pleasing thread.** Mission-loyalty over in-group-loyalty.
+
+### Q63 as a "requiring excellence produces respect" reframe
+
+**Q63:** *"Comfort vs Discomfort: Peak performance happens when teams are: 1-Comfortable / 5-Uncomfortable."* Admired answer is 5 (uncomfortable / productively pressured).
+
+A common pattern at twenty — and especially in respectful, internationally-mobile, civically-engaged students, AND particularly among students from harder backgrounds where respect was hard-earned — is to read "requiring excellence" and "showing respect" as opposite ends of the same axis. The implicit logic: *if I push them, I am not respecting them; if I respect them, I should ease the demand.*
+
+**The admired-leader frame inverts that logic exactly.** Requiring excellence *is* the highest form of respect. To require excellence of someone, you have to (a) believe they are capable of it, (b) care about their growth more than their comfort, (c) be willing to hold the discomfort while they rise to the standard. Easing the demand looks like respect on the surface; on a longer time-frame the team experiences it as the leader not believing they can rise.
+
+When Q63 fires in any coaching guide — pretend-CEO or actual-leader — name this reframe explicitly. It is one of the most consistently valuable coaching points in the instrument and the framing is non-obvious from inside the wiring that produced the answer.
+
+### Q125 as a "B-grade = F-grade" gateway-belief test
+
+**Q125:** *"I believe in people in advance of them believing in themselves."* Scale 1-TRUE / 5-FALSE; admired answer is 1 (TRUE).
+
+Q125 is one of a small set of *gateway-belief* tests in the instrument where there is effectively no B-grade. Either you believe in people in advance, or you do not — and the team feels the difference. An answer of 2 ("mostly, but not always") triggers the *Mixed Conditional Belief* flag, and the B-grade-equals-F-grade rule applies: **at the Mixed level, Conditional Belief is not a soft version of Severe; it is a different reading of the same fundamental gap and carries effectively the same coaching weight.**
+
+In every coaching guide where Mixed Conditional Belief is lit, the framing must explicitly:
+
+1. State the rule: there is no B-grade on this question; either belief is extended in advance or it is not.
+2. Cite Q125 specifically and the respondent's actual answer.
+3. State that Mixed-level Conditional Belief still constrains followership depth and the leader's ability to develop people they do not yet fully believe in.
+4. **Never** soft-pedal the finding by characterizing Mixed as "less concerning than Severe." It is the same concern, expressed at a lower-severity surface.
+
+### Other pretend-CEO mode framing rules
+
+- **The "leader's burden" language is replaced with "against-standard instincts" language** in pretend-CEO mode. The leader has not yet had a burden to pick up; they have current instincts about what good leadership looks like, and some of those instincts go against the standard.
+- **The Closing Note's "two effectiveness levers, in sequence" structure stays.** The first lever is still the prerequisite (HandsOn|Sev plus the depth-of-organization flag). The second lever is the in-the-room conducting / against-standard-instincts work. The advantage-at-this-altitude paragraph is the new pretend-CEO-specific addition: refining instincts at twenty in peer-team contexts and student-leadership operations means the version of the leader who walks into a real seat has already done the work most first-time leaders have to do under pressure.
+- **Cohort-relative scoring still anchors at the all-leaders cohort norms.** Even in pretend-CEO mode, a Z|Algo of +1.40 means the pretend-CEO answers cluster top-decile of the all-respondents population — which itself skews senior. That is meaningful. State the cohort-relative read and the cohort-typical context.
+- **Reference case:** Alba Quintas Núñez (`20260425.alba.quintasnunez@yale.edu`, April 2026 coaching guide) — Yale undergraduate, top-decile pretend-CEO file, four against-standard instincts visible, ideological-conformity nuance on Pleasing, Q119 walk-through, Q63 respect reframe, Q125 B=F call-out all present.
